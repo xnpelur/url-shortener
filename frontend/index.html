@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Url shortener</title>
+    <link rel="stylesheet" href="/static/styles.css">    
+</head>
+<body>
+    <div class="container">
+        <label for="url">Enter URL</label>
+        <input type="text" name="url" id="url">
+        <button type="button" onclick="submitForm()">Submit</button>
+    </div>
+    <div class="container">
+        <h2>Last 10 entered URLs</h2>
+        <table id="url-table">
+            <thead>
+                <tr>
+                    <th>Shortened URL</th>
+                    <th>Full URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#">Sample</a></td>
+                    <td><a href="#">Data</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
