@@ -3,8 +3,8 @@ package server
 import (
 	"fmt"
 	"net/http"
-	"urlShortener/internal/link"
-	"urlShortener/internal/storage"
+	"url-shortener/internal/link"
+	"url-shortener/internal/storage"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -15,7 +15,7 @@ func Start(port int) {
 	engine := gin.Default()
 
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://127.0.0.1"}
+	config.AllowOrigins = []string{"http://127.0.0.1", "http://localhost"}
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 	engine.Use(cors.New(config))
 
@@ -63,7 +63,7 @@ func createLink(c *gin.Context) {
 		return
 	}
 
-	if checkIfReachable(newLink.Url) == false {
+	if !checkIfReachable(newLink.Url) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Url is not reachable",
 		})

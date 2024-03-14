@@ -2,7 +2,7 @@ package storage
 
 import (
 	"database/sql"
-	"urlShortener/internal/link"
+	"url-shortener/internal/link"
 
 	_ "github.com/mattn/go-sqlite3"
 )
